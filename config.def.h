@@ -6,8 +6,8 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Liberation Mono:size=10" };
-static const char dmenufont[]       = "Liberation Mono:size=10";
+static const char *fonts[]          = { "Dina:size=10" };
+static const char dmenufont[]       = "Dina:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_red[]         = "#ff0000";
 static const char col_blue[] 	    = "#0000fF";
@@ -61,9 +61,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_red, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *firefox[] = { "firefox", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,			XK_w,	   spawn,          {.v = firefox } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
